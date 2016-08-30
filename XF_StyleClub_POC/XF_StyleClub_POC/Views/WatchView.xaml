@@ -8,6 +8,11 @@
 
   <StackLayout VerticalOptions="FillAndExpand">
 
+    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0" Spacing="0">
+      <Button HorizontalOptions="FillAndExpand" Text="MOST RECENT" BackgroundColor="Blue" TextColor="White" />
+      <Button HorizontalOptions="FillAndExpand" Text="TOP RATED" BackgroundColor="Blue" TextColor="White" />
+    </StackLayout>
+
     <Grid HorizontalOptions="FillAndExpand" VerticalOptions="Start">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="60" />
@@ -36,8 +41,7 @@
     <RelativeLayout VerticalOptions="StartAndExpand" Padding="10">
 
       <videoPlayer:VideoPlayer x:Name="VideoPlayer" HorizontalOptions="Fill" VerticalOptions="Start"
-                               Source="http://vjs.zencdn.net/v/oceans.mp4" DisplayControls="False" TimeElapsedInterval="1"
-                               PlayerStateChanged="VideoPlayer_OnPlayerStateChanged" />
+                               Source="http://vjs.zencdn.net/v/oceans.mp4" DisplayControls="False" PlayerStateChanged="VideoPlayer_OnPlayerStateChanged" />
 
       <Button x:Name="PlayButton"
               RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView, ElementName=VideoPlayer, Property=Width, Factor=0.45}"
