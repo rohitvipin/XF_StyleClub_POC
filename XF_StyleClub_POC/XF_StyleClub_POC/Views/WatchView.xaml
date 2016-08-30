@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:videoPlayer="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
              x:Class="XF_StyleClub_POC.Views.WatchView"
              Title="{Binding PageTitle}">
-  <Label Text="Tab1" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="Blue" TextColor="Fuchsia" />
+  <videoPlayer:VideoPlayer Source="http://vjs.zencdn.net/v/oceans.mp4" />
 </ContentPage>
