@@ -1,16 +1,14 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using FFImageLoading.Forms.Droid;
+using ImageCircle.Forms.Plugin.Droid;
+using Octane.Xam.VideoPlayer.Android;
 
 namespace XF_StyleClub_POC.Droid
 {
     [Activity(Label = "XF_StyleClub_POC", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -19,7 +17,12 @@ namespace XF_StyleClub_POC.Droid
 
             base.OnCreate(bundle);
 
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            Xamarin.Forms.Forms.Init(this, bundle);
+
+            FormsVideoPlayer.Init();
+            CachedImageRenderer.Init();
+            ImageCircleRenderer.Init();
+
             LoadApplication(new App());
         }
     }
