@@ -6,7 +6,7 @@
              x:Class="XF_StyleClub_POC.Views.WatchView"
              Title="{Binding PageTitle}">
 
-  <StackLayout VerticalOptions="FillAndExpand">
+  <StackLayout VerticalOptions="Fill">
 
     <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="0" Spacing="0">
       <Button HorizontalOptions="FillAndExpand" Text="MOST RECENT" BackgroundColor="Blue" TextColor="White" />
