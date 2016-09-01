@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
-using EmoMe.Services.Interfaces;
+using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.Enums;
 using XF_StyleClub_POC.Services.Interfaces;
 using Color = System.Drawing.Color;

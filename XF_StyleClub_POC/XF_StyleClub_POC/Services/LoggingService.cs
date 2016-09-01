@@ -1,7 +1,7 @@
 ﻿using System;
-using EmoMe.Services.Interfaces;
+using XF_StyleClub_POC.Services.Interfaces;
 
-namespace EmoMe.Services
+namespace XF_StyleClub_POC.Services
 {
     public class LoggingService : ILoggingService
     {

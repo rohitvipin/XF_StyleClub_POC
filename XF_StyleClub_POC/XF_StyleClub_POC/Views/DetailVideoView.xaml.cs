@@ -14,7 +14,6 @@ namespace XF_StyleClub_POC.Views
             InitializeComponent();
         }
 
-
         private void PlayButton_OnClicked(object sender, EventArgs e)
         {
             if (VideoPlayer.State == PlayerState.Prepared)
@@ -40,9 +39,9 @@ namespace XF_StyleClub_POC.Views
         }
 
         public Page BindablePage { get; }
-        public Task Initialize()
+
+		public async Task Initialize()
         {
-            throw new NotImplementedException();
         }
     }
 }

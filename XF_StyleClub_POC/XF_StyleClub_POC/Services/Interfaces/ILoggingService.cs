@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmoMe.Services.Interfaces
+namespace XF_StyleClub_POC.Services.Interfaces
 {
     public interface ILoggingService
     {

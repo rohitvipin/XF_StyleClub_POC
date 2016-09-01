@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.Views.Interfaces;
@@ -43,5 +44,16 @@ namespace XF_StyleClub_POC.Services
                 await AppRoot.MainPage.Navigation.PopAsync();
             }
         }
-    }
+
+		public async Task NavigateFromTabPage(IView view, string pageTitle)
+		{
+			var page = view as Page;
+			if (page == null)
+			{
+				return;
+			}
+			page.Title = pageTitle;
+			await ((AppRoot.MainPage as TabbedPage)?.SelectedItem as NavigationPage)?.Navigation.PushAsync(page, true);
+		}
+	}
 }

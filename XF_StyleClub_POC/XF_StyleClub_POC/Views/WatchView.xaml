@@ -1,71 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             x:Class="XF_StyleClub_POC.Views.WatchView"
-             Title="{Binding PageTitle}">
-
-  <!--Show List of Video-->
-
-  <!--<ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding StyleClub}" HasUnevenRows="true" BackgroundColor="#f9f9f9" >
-
-      <ListView.ItemTemplate>
-
-        <DataTemplate>
-          <ViewCell>
-
-            <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
-              <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding SelectVideoDetailCommand}" />
-              </Grid.GestureRecognizers>
-
-              <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-              </Grid.RowDefinitions>
-              <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-              </Grid.ColumnDefinitions>
-
-              <FFImageLoading:CachedImage Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions ="FillAndExpand"
-                     Aspect="AspectFill" Source="{Binding ImageSource}" HeightRequest="200" >
-              </FFImageLoading:CachedImage>
-
-              <Label Grid.Row="1" Grid.Column="0" Text="{Binding Title}" TextColor="#809cd0" VerticalOptions="EndAndExpand"/>
-
-              <Label Grid.Row="1" Grid.Column="0" VerticalOptions="StartAndExpand" Text="{Binding Description}" TextColor="Gray"/>
-            </Grid>
-
-          </ViewCell>
-
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>-->
-
-
-  <StackLayout VerticalOptions="FillAndExpand">
-    <Grid Padding="10" RowSpacing="10" ColumnSpacing="10">
-      <Grid.GestureRecognizers>
-        <TapGestureRecognizer Command="{Binding SelectVideoDetailCommand}" />
-      </Grid.GestureRecognizers>
-
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="Auto"/>
-      </Grid.ColumnDefinitions>
-
-      <FFImageLoading:CachedImage Grid.Row="0" Grid.Column="0" HorizontalOptions="FillAndExpand" VerticalOptions ="FillAndExpand"
-             Aspect="AspectFill" Source="https://s.yimg.com/ge/default/691231/carousel3lg.jpg" HeightRequest="200" WidthRequest="320" >
-      </FFImageLoading:CachedImage>
-
-      <Label Grid.Row="1" Grid.Column="0" Text="Title 1" TextColor="#809cd0" VerticalOptions="EndAndExpand"/>
-
-      <Label Grid.Row="2" Grid.Column="0" VerticalOptions="StartAndExpand" Text="Description 1" TextColor="Gray"/>
-    </Grid>
-  </StackLayout>
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:FFImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="XF_StyleClub_POC.Views.WatchView" Title="{Binding PageTitle}">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<OnPlatform.iOS>5, 20, 0, 5</OnPlatform.iOS>
+			<OnPlatform.Android>5, 0, 0, 5</OnPlatform.Android>
+			<OnPlatform.WinPhone>5, 0, 0, 5</OnPlatform.WinPhone>
+		</OnPlatform>
+	</ContentPage.Padding>
+	<ListView VerticalOptions="FillAndExpand" ItemsSource="{Binding StyleClub}" HasUnevenRows="true" BackgroundColor="#f9f9f9">
+		<ListView.ItemTemplate>
+			<DataTemplate>
+				<ViewCell>
+					<StackLayout VerticalOptions="Center" Padding="5 ,10, 5, 10">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding SelectVideoDetailCommand}" />
+						</StackLayout.GestureRecognizers>
+						<Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="{Binding Title}" TextColor="#809cd0" FontSize="Small" />
+						<FFImageLoading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFit" Source="{Binding ImageSource}" HeightRequest="200">
+						</FFImageLoading:CachedImage>
+						<Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="{Binding Description}" TextColor="Gray" FontSize="Micro" />
+					</StackLayout>
+				</ViewCell>
+			</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
 </ContentPage>

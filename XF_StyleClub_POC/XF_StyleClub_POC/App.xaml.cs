@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EmoMe.Services;
-using EmoMe.Services.Interfaces;
+using XF_StyleClub_POC.Services;
+using XF_StyleClub_POC.Services.Interfaces;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;

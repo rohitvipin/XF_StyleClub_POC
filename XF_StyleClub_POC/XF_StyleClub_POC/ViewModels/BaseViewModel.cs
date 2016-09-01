@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using EmoMe.Services.Interfaces;
+using XF_StyleClub_POC.Services.Interfaces;
 using Xamarin.Forms;
 using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Enums;

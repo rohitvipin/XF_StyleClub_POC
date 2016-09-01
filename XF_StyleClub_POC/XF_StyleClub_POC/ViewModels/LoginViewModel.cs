@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EmoMe.Services.Interfaces;
+using XF_StyleClub_POC.Services.Interfaces;
 using Microsoft.Practices.Unity;
 using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Enums;
