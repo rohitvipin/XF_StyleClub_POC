@@ -50,11 +50,15 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<IHomeTabView, HomeTabView>();
             unityContainer.RegisterType<IWatchView, WatchView>();
             unityContainer.RegisterType<IShopView, ShopView>();
+            unityContainer.RegisterType<ILoginView, LoginView>();
+            unityContainer.RegisterType<IDetailVideoView, DetailVideoView>();
 
 
             //ViewModels
             unityContainer.RegisterType<IWatchViewModel, WatchViewModel>();
             unityContainer.RegisterType<IShopViewModel, ShopViewModel>();
+            unityContainer.RegisterType<ILoginViewModel, LoginViewModel>();
+            unityContainer.RegisterType<IWatchViewModel, WatchViewModel>();
 
             //Services
             unityContainer.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());

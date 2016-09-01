@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:XF_StyleClub_POC.CustomControls;assembly=XF_StyleClub_POC"
+             x:Class="XF_StyleClub_POC.Views.LoginView">
+
+  <ScrollView VerticalOptions="FillAndExpand">
+    <StackLayout >
+      <StackLayout HeightRequest="153" VerticalOptions="Fill" BackgroundColor="#f9f9f9">
+        <Image Source="scLogoLg" Aspect="AspectFill" Margin="0, 80, 0, 0" />
+      </StackLayout>
+      <StackLayout Spacing="10" VerticalOptions="FillAndExpand" WidthRequest="415" BackgroundColor="#c7d5ee">
+        <customControls:CustomEntry TextColor="#809cd0"  Margin="0, 50, 0, 0" VerticalOptions="Start" Placeholder="User Name" EntryKeyboardButtonType="Next" NextControlToFocus="{x:Reference PasswordEntry}" BackgroundColor="#c7d5ee" />
+        <customControls:CustomEntry TextColor="#809cd0"  VerticalOptions="Start" Placeholder="Password" IsPassword="True" x:Name="PasswordEntry" EntryKeyboardButtonType="Done" CommandAfterCompletion="{Binding LoginCommand}" BackgroundColor="#c7d5ee" />
+
+        <Button BorderRadius="2" BackgroundColor="#809cd0" VerticalOptions="Start" Text="Login" TextColor="#f9f9f9" Command="{Binding LoginCommand}"/>
+      </StackLayout>
+    </StackLayout>
+  </ScrollView>
+
+
+</ContentPage>
