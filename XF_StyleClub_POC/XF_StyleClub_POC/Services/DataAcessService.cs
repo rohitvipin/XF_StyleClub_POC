@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
+using Newtonsoft.Json;
 using XF_StyleClub_POC.Entities;
 using XF_StyleClub_POC.Services.Interfaces;
 
@@ -122,7 +123,7 @@ namespace XF_StyleClub_POC.Services
                 }
             };
 
-
+            var jsonstring = JsonConvert.SerializeObject(allProducts);
 
             return allProducts;
         }
