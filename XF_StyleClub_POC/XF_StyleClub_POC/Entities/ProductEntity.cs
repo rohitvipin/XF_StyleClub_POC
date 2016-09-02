@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using XF_StyleClub_POC.Services.Interfaces;
 using Microsoft.Practices.Unity;
+using Octane.Xam.VideoPlayer;
 using Xamarin.Forms;
 using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Enums;
@@ -17,6 +18,9 @@ namespace XF_StyleClub_POC.Entities
         private readonly ILoggingService _loggingService;
         private readonly IDialogService _dialogService;
         private string _imageUrl;
+        private string _title;
+        private string _description;
+        private string _videoUrl;
 
         public ProductEntity(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
         {
@@ -28,9 +32,25 @@ namespace XF_StyleClub_POC.Entities
             SelectVideoDetailCommand = new AsyncRelayCommand(SelectVideoDetailCommandHandler);
         }
 
-        public string Title { get; set; }
+        public string Title
+        {
+            get { return _title; }
+            set
+            {
+                _title = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public string Description { get; set; }
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                OnPropertyChanged();
+            }
+        }
 
         public string ImageUrl
         {
@@ -42,6 +62,19 @@ namespace XF_StyleClub_POC.Entities
                 OnPropertyChanged(nameof(ImageSource));
             }
         }
+
+        public string VideoUrl
+        {
+            get { return _videoUrl; }
+            set
+            {
+                _videoUrl = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(VideoSource));
+            }
+        }
+
+        public VideoSource VideoSource => VideoSource.FromUri(VideoUrl);
 
         public ImageSource ImageSource => ImageSource.FromUri(new Uri(ImageUrl));
 
