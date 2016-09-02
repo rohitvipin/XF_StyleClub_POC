@@ -67,7 +67,7 @@ namespace XF_StyleClub_POC.ViewModels
                 };
 
                 //Delay to load the image from Url
-                await Task.Delay(Constants.DefaultLoadTime);
+                await Task.Delay(Constants.DefaultLoadTimeInMs);
             }
             catch (Exception exception)
             {

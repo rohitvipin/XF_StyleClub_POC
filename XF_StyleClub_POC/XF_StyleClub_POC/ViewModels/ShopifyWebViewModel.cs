@@ -46,7 +46,7 @@ namespace XF_StyleClub_POC.ViewModels
                 Url = url;
 
                 //Time load website
-                await Task.Delay(Constants.DefaultLoadTime);
+                await Task.Delay(Constants.DefaultLoadTimeInMs);
             }
             catch (Exception exception)
             {
