@@ -25,7 +25,7 @@ namespace XF_StyleClub_POC.Entities
         private string _ownerImageSource;
         private string _ownerName;
         private string _location;
-        private TimeSpan _timeElapsed;
+        private DateTime _createdDateTime;
 
         public ProductEntity(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
         {
@@ -128,13 +128,16 @@ namespace XF_StyleClub_POC.Entities
             }
         }
 
-        public TimeSpan TimeElapsed
+        public TimeSpan TimeElapsed => DateTime.Now - CreatedDateTime;
+
+        public DateTime CreatedDateTime
         {
-            get { return _timeElapsed; }
+            get { return _createdDateTime; }
             set
             {
-                _timeElapsed = value;
+                _createdDateTime = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(TimeElapsed));
             }
         }
 
@@ -153,7 +156,7 @@ namespace XF_StyleClub_POC.Entities
 
                 var detailVideoView = _unityContainer.Resolve<IDetailVideoView>();
                 await _navigationService.NavigateToPage(detailVideoView, PageTitles.VideoDetails);
-                await detailVideoView.Initialize();
+                await detailVideoView.Initialize(this);
             }
             catch (Exception exception)
             {

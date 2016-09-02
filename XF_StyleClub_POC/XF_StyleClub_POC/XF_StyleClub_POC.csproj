@@ -46,7 +46,9 @@
     <Compile Include="Enums\ToastNotificationType.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DataAcessService.cs" />
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\Interfaces\IDataAcessService.cs" />
     <Compile Include="Services\Interfaces\IDialogService.cs" />
     <Compile Include="Services\Interfaces\ILoggingService.cs" />
     <Compile Include="Services\Interfaces\INavigationService.cs" />

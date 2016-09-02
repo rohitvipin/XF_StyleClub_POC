@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF_StyleClub_POC.Entities;
 using XF_StyleClub_POC.ViewModels.Interfaces;
 using XF_StyleClub_POC.Views.Interfaces;
 
@@ -18,7 +19,12 @@ namespace XF_StyleClub_POC.Views
 
         public Page BindablePage { get; }
 
-        public async Task Initialize() => await _detailVideoViewModel.Initialize();
+        public Task Initialize()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public async Task Initialize(ProductEntity product) => await _detailVideoViewModel.Initialize(product);
 
         protected override void OnAppearing()
         {

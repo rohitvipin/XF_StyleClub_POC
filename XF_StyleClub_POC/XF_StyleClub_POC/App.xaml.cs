@@ -66,6 +66,7 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IDialogService, DialogService>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<ILoggingService, LoggingService>(new ContainerControlledLifetimeManager());
+            unityContainer.RegisterType<IDataAcessService, DataAcessService>(new ContainerControlledLifetimeManager());
         }
     }
 }
