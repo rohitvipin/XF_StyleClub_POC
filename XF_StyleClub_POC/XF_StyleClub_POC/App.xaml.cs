@@ -6,8 +6,6 @@ using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 using XF_StyleClub_POC.Common;
-using XF_StyleClub_POC.Services;
-using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels;
 using XF_StyleClub_POC.ViewModels.Interfaces;
 using XF_StyleClub_POC.Views;
@@ -35,8 +33,8 @@ namespace XF_StyleClub_POC
                 unityContainer.Resolve<IShopView>()
             };
             var homeTabView = unityContainer.Resolve<IHomeTabView>(new ParameterOverride("childViews", childTabs));
-            Task.Run(async () => await homeTabView.Initialize());
             navigationService.SetRoot(homeTabView, PageTitles.ApplicationTitle);
+            Task.Run(async () => await homeTabView.Initialize());
         }
 
         private static void RegisterTypes(IUnityContainer unityContainer)
@@ -52,13 +50,17 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<IShopView, ShopView>();
             unityContainer.RegisterType<ILoginView, LoginView>();
             unityContainer.RegisterType<IDetailVideoView, DetailVideoView>();
+            unityContainer.RegisterType<IShopifyWebView, ShopifyWebView>();
 
 
             //ViewModels
-            unityContainer.RegisterType<IWatchViewModel, WatchViewModel>();
+            unityContainer.RegisterType<IWatchViewModel, WatchViewModel>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IShopViewModel, ShopViewModel>();
             unityContainer.RegisterType<ILoginViewModel, LoginViewModel>();
             unityContainer.RegisterType<IWatchViewModel, WatchViewModel>();
+            unityContainer.RegisterType<IDetailVideoViewModel, DetailVideoViewModel>();
+            unityContainer.RegisterType<IShopifyWebViewModel, ShopifyWebViewModel>();
+
 
             //Services
             unityContainer.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());

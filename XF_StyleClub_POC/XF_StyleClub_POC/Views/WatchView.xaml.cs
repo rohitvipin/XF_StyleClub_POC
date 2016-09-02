@@ -19,11 +19,5 @@ namespace XF_StyleClub_POC.Views
         public Page BindablePage { get; }
 
         public async Task Initialize() => await _watchViewModel.Initialize();
-
-		protected override async void OnAppearing()
-		{
-			base.OnAppearing();
-			await Initialize();
-		}
-	}
+    }
 }

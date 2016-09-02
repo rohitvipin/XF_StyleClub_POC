@@ -7,8 +7,7 @@ namespace XF_StyleClub_POC.Services.Interfaces
     {
         App AppRoot { get; set; }
         void SetRoot(IView view, string pageTitle);
-        Task NavigateFromRootPage(IView view, string pageTitle);
+        Task NavigateToPage(IView view, string pageTitle);
         Task GoBack(bool isModal);
-		Task NavigateFromTabPage(IView view, string pageTitle);
-	}
+    }
 }

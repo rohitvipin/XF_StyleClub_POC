@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customControls="clr-namespace:XF_StyleClub_POC.CustomControls;assembly=XF_StyleClub_POC"
-             x:Class="XF_StyleClub_POC.Views.LoginView">
+             x:Class="XF_StyleClub_POC.Views.LoginView"
+             Title="{Binding PageTitle}">
 
   <ScrollView VerticalOptions="FillAndExpand">
     <StackLayout >

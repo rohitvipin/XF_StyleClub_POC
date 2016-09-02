@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Acr.UserDialogs;
 using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.Enums;
-using XF_StyleClub_POC.Services.Interfaces;
 using Color = System.Drawing.Color;
 
 namespace XF_StyleClub_POC.Services
@@ -13,6 +12,7 @@ namespace XF_StyleClub_POC.Services
     {
         private const string OkButtonText = "OK";
         private readonly IUserDialogs _userDialogs = UserDialogs.Instance;
+
         private readonly ILoggingService _loggingService;
 
         public DialogService(ILoggingService loggingService)
@@ -59,6 +59,7 @@ namespace XF_StyleClub_POC.Services
             }
             catch (Exception exception)
             {
+                //Supress this expection
                 _loggingService.Error(exception);
             }
         }
@@ -96,6 +97,7 @@ namespace XF_StyleClub_POC.Services
             }
             catch (Exception exception)
             {
+                //Supress this expection
                 _loggingService.Error(exception);
             }
         }
@@ -108,6 +110,7 @@ namespace XF_StyleClub_POC.Services
             }
             catch (Exception exception)
             {
+                //Supress this expection
                 _loggingService.Error(exception);
             }
         }

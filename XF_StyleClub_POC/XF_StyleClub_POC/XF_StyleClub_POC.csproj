@@ -53,16 +53,24 @@
     <Compile Include="Services\LoggingService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DetailVideoViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IDetailVideoViewModel.cs" />
+    <Compile Include="ViewModels\Interfaces\IShopifyWebViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IShopViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IViewModel.cs" />
     <Compile Include="ViewModels\Interfaces\IWatchViewModel.cs" />
+    <Compile Include="ViewModels\ShopifyWebViewModel.cs" />
     <Compile Include="ViewModels\ShopViewModel.cs" />
     <Compile Include="ViewModels\WatchViewModel.cs" />
     <Compile Include="Views\HomeTabView.cs" />
     <Compile Include="Views\Interfaces\IHomeTabView.cs" />
+    <Compile Include="Views\Interfaces\IShopifyWebView.cs" />
     <Compile Include="Views\Interfaces\IShopView.cs" />
     <Compile Include="Views\Interfaces\IView.cs" />
     <Compile Include="Views\Interfaces\IWatchView.cs" />
+    <Compile Include="Views\ShopifyWebView.xaml.cs">
+      <DependentUpon>ShopifyWebView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShopView.xaml.cs">
       <DependentUpon>ShopView.xaml</DependentUpon>
     </Compile>
@@ -97,7 +105,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CustomControls\" />
+    <EmbeddedResource Include="Views\ShopifyWebView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Acr.UserDialogs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using Acr.UserDialogs;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
@@ -22,6 +23,7 @@ namespace XF_StyleClub_POC.Droid
             FormsVideoPlayer.Init();
             CachedImageRenderer.Init();
             ImageCircleRenderer.Init();
+            UserDialogs.Init(this);
 
             LoadApplication(new App());
         }

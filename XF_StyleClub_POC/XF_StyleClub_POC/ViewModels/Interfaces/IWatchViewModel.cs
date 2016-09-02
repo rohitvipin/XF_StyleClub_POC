@@ -5,6 +5,6 @@ namespace XF_StyleClub_POC.ViewModels.Interfaces
 {
 	public interface IWatchViewModel : IViewModel
 	{
-		ObservableCollection<ImageEntity> StyleClub { get; set; }
+		ObservableCollection<ImageEntity> Products { get; set; }
 	}
 }

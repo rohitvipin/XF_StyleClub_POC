@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using XF_StyleClub_POC.Services.Interfaces;
 using Microsoft.Practices.Unity;
 using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Enums;
-using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels.Interfaces;
 using XF_StyleClub_POC.Views.Interfaces;
 
@@ -20,7 +17,7 @@ namespace XF_StyleClub_POC.ViewModels
         private readonly ILoggingService _loggingService;
         private readonly IDialogService _dialogService;
 
-        public LoginViewModel(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
+        public LoginViewModel(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService) : base(dialogService)
         {
             _unityContainer = unityContainer;
             _navigationService = navigationService;
@@ -38,6 +35,8 @@ namespace XF_StyleClub_POC.ViewModels
 
             try
             {
+                BeginBusy();
+
                 var childTabs = new List<IView>
                 {
                     _unityContainer.Resolve<IWatchView>(),
@@ -45,7 +44,7 @@ namespace XF_StyleClub_POC.ViewModels
                 };
 
                 var homeTabView = _unityContainer.Resolve<IHomeTabView>(new ParameterOverride("childViews", childTabs));
-                _navigationService.SetRoot(homeTabView,PageTitles.ApplicationTitle);
+                _navigationService.SetRoot(homeTabView, PageTitles.ApplicationTitle);
                 await homeTabView.Initialize();
             }
             catch (Exception exception)
@@ -53,12 +52,16 @@ namespace XF_StyleClub_POC.ViewModels
                 _loggingService.Error(exception);
                 _dialogService.ShowToastMessage(PageTitles.ApplicationTitle, Messages.UnExpectedError, ToastNotificationType.Error);
             }
+            finally
+            {
+                EndBusy();
+            }
         }
 
         public override string PageTitle { get; }
-        public override Task Initialize()
+
+        public async override Task Initialize()
         {
-            throw new NotImplementedException();
         }
 
         public AsyncRelayCommand LoginCommand { get; }

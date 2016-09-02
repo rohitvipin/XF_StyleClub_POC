@@ -1,12 +1,10 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using XF_StyleClub_POC.Services.Interfaces;
 using Xamarin.Forms;
 using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Enums;
-using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels.Interfaces;
 
 namespace XF_StyleClub_POC.ViewModels
@@ -14,32 +12,16 @@ namespace XF_StyleClub_POC.ViewModels
     public abstract class BaseViewModel : IViewModel
     {
         private readonly IDialogService _dialogService;
-        private readonly ILoggingService _loggingService;
         private int _busyTaskCount;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected BaseViewModel(IDialogService dialogService, ILoggingService loggingService)
+        protected BaseViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
-            _loggingService = loggingService;
         }
 
-        protected BaseViewModel()
-        {
-        }
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            try
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            catch (Exception exception)
-            {
-                _loggingService.Error(exception);
-            }
-        }
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
         public bool IsBusy => _busyTaskCount != 0;
 

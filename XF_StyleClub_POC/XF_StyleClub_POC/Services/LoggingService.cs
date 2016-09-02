@@ -7,7 +7,7 @@ namespace XF_StyleClub_POC.Services
     {
         public void Error(Exception exception)
         {
-            
+
         }
     }
 }
