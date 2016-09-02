@@ -10,7 +10,7 @@ using XF_StyleClub_POC.Views.Interfaces;
 
 namespace XF_StyleClub_POC.Entities
 {
-    public class ImageEntity : BaseEntity
+    public class ProductEntity : BaseEntity
     {
         private readonly IUnityContainer _unityContainer;
         private readonly INavigationService _navigationService;
@@ -18,7 +18,7 @@ namespace XF_StyleClub_POC.Entities
         private readonly IDialogService _dialogService;
         private string _imageUrl;
 
-        public ImageEntity(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
+        public ProductEntity(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
         {
             _unityContainer = unityContainer;
             _navigationService = navigationService;

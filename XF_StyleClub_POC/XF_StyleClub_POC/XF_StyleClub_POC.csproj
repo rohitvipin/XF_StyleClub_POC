@@ -41,7 +41,6 @@
     <Compile Include="Common\Messages.cs" />
     <Compile Include="Common\PageTitles.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\VideoEntity.cs" />
     <Compile Include="Enums\LoadingMaskType.cs" />
     <Compile Include="Enums\ToastNotificationType.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -77,7 +76,7 @@
     <Compile Include="Views\WatchView.xaml.cs">
       <DependentUpon>WatchView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\ImageEntity.cs" />
+    <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Common\AsyncRelayCommand.cs" />
     <Compile Include="Views\Interfaces\ILoginView.cs" />
     <Compile Include="ViewModels\Interfaces\ILoginViewModel.cs" />

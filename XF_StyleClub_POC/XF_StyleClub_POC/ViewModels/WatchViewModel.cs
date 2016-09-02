@@ -12,7 +12,7 @@ namespace XF_StyleClub_POC.ViewModels
 {
     public class WatchViewModel : BaseViewModel, IWatchViewModel
     {
-        private ObservableCollection<ImageEntity> _products;
+        private ObservableCollection<ProductEntity> _products;
         private readonly IUnityContainer _unityContainer;
         private readonly INavigationService _navigationService;
         private readonly ILoggingService _loggingService;
@@ -26,7 +26,7 @@ namespace XF_StyleClub_POC.ViewModels
             _loggingService = loggingService;
         }
 
-        public ObservableCollection<ImageEntity> Products
+        public ObservableCollection<ProductEntity> Products
         {
             get { return _products; }
             set
@@ -44,21 +44,21 @@ namespace XF_StyleClub_POC.ViewModels
             {
                 BeginBusy();
 
-                Products = new ObservableCollection<ImageEntity>
+                Products = new ObservableCollection<ProductEntity>
                 {
-                    new ImageEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
+                    new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
                     {
                         Title = "Title 1",
                         Description = "Description 1",
                         ImageUrl = "http://keenthemes.com/preview/metronic/theme/assets/global/plugins/jcrop/demos/demo_files/image1.jpg"
                     },
-                    new ImageEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
+                    new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
                     {
                         Title = "Title 2",
                         Description = "Description 2",
                         ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIiE4UrM1WYxr5HQQyvouLkG4NGOeezW1U3XwD8PpPdoLf3_M"
                     },
-                    new ImageEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
+                    new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
                     {
                         Title = "Title 3",
                         Description = "Description 3",
