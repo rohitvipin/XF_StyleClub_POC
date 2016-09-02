@@ -1,7 +1,7 @@
 ﻿namespace XF_StyleClub_POC.Common
 {
-    public class Constants
+    public static class Constants
     {
-        public const int DefaultLoadTime = 1000;
+        public const int DefaultLoadTimeInMs = 3000;
     }
 }
