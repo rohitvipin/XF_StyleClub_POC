@@ -26,7 +26,7 @@
       </Grid>
 
       <videoPlayer:VideoPlayer x:Name="VideoPlayer" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
-                               Source="http://vjs.zencdn.net/v/oceans.mp4" DisplayControls="True" AutoPlay="True"  />
+                               Source="https://vjs.zencdn.net/v/oceans.mp4" DisplayControls="True" AutoPlay="True"  />
 
       <Label HorizontalOptions="FillAndExpand" FontSize="Micro" Text="{Binding Description}" />
 
