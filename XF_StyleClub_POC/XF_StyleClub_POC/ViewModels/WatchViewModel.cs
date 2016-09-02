@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using XF_StyleClub_POC.Services.Interfaces;
 using Microsoft.Practices.Unity;
@@ -46,7 +47,30 @@ namespace XF_StyleClub_POC.ViewModels
             {
                 BeginBusy();
 
-                Products = new ObservableCollection<ProductEntity>(_dataAcessService.GetAllProducts(_unityContainer, _navigationService, _loggingService, _dialogService));
+                var allProductsServiceResponse = await _dataAcessService.GetAllProducts();
+
+                if (allProductsServiceResponse?.ReturnValue == null)
+                {
+                    return;
+                }
+
+                if (allProductsServiceResponse.WebResponseEntity.IsSuccessResponse == false)
+                {
+                    return;
+                }
+
+                Products = new ObservableCollection<ProductEntity>(allProductsServiceResponse.ReturnValue?.Select(x => new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
+                {
+                    CreatedDateTime = x.CreatedDateTime,
+                    Description = x.Description,
+                    ImageUrl = x.ImageUrl,
+                    Location = x.Location,
+                    OwnerImageUrl = x.OwnerImageUrl,
+                    OwnerName = x.OwnerName,
+                    Title = x.Title,
+                    VideoUrl = x.VideoUrl,
+                    WebsiteUrl = x.WebsiteUrl
+                }));
 
                 //Delay to load the image from Url
                 await Task.Delay(Constants.DefaultLoadTimeInMs);

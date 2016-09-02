@@ -10,6 +10,8 @@ using XF_StyleClub_POC.ViewModels;
 using XF_StyleClub_POC.ViewModels.Interfaces;
 using XF_StyleClub_POC.Views;
 using XF_StyleClub_POC.Views.Interfaces;
+using XF_StyleClub_POC.Wrapper;
+using XF_StyleClub_POC.Wrapper.Interfaces;
 
 namespace XF_StyleClub_POC
 {
@@ -67,6 +69,7 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<IDialogService, DialogService>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<ILoggingService, LoggingService>(new ContainerControlledLifetimeManager());
             unityContainer.RegisterType<IDataAcessService, DataAcessService>(new ContainerControlledLifetimeManager());
+            unityContainer.RegisterType<IApiWrapper, ApiWrapper>(new ContainerControlledLifetimeManager());
         }
     }
 }

@@ -166,7 +166,6 @@ namespace XF_StyleClub_POC.Entities
             finally
             {
                 parentViewModel?.EndBusy();
-
             }
         }
     }
