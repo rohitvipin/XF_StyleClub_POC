@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using Octane.Xam.VideoPlayer;
+using Xamarin.Forms;
 using XF_StyleClub_POC.Common;
+using XF_StyleClub_POC.Entities;
 using XF_StyleClub_POC.Enums;
 using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels.Interfaces;
@@ -18,6 +21,11 @@ namespace XF_StyleClub_POC.ViewModels
 
         private string _productUrl;
         private string _description;
+        private VideoSource _videoSource;
+        private string _ownerName;
+        private string _location;
+        private int _timeElapsedInMinutes;
+        private ImageSource _ownerImageSource;
 
         public DetailVideoViewModel(IDialogService dialogService, ILoggingService loggingService, IUnityContainer unityContainer, INavigationService navigationService) : base(dialogService)
         {
@@ -56,14 +64,24 @@ namespace XF_StyleClub_POC.ViewModels
 
         public override string PageTitle => PageTitles.VideoDetails;
 
-        public override async Task Initialize()
+        public override Task Initialize()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task Initialize(ProductEntity product)
         {
             try
             {
                 BeginBusy();
 
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc commodo sodales augue quis vehicula. Quisque eget neque in nisl cursus cursus at ut sem. Integer lacus nisl, malesuada in mollis at, aliquam in sem. Aliquam semper lacus nec lectus tincidunt, ut elementum orci iaculis. Duis aliquet interdum odio vel rutrum. Vivamus tincidunt tellus sit amet nulla efficitur rutrum. Sed aliquet enim at scelerisque vestibulum. Quisque at tincidunt tortor. Vestibulum sed tincidunt velit, eget pellentesque neque. Nulla facilisi.";
-                ProductUrl = "http://thestyleclub.com/";
+                Description = product.Description;
+                ProductUrl = product.WebsiteUrl;
+                VideoSource = product.VideoSource;
+                OwnerImageSource = product.OwnerImageSource;
+                OwnerName = product.OwnerName;
+                TimeElapsedInMinutes = (int)product.TimeElapsed.TotalMinutes;
+                Location = product.Location;
             }
             catch (Exception exception)
             {
@@ -73,6 +91,36 @@ namespace XF_StyleClub_POC.ViewModels
             finally
             {
                 EndBusy();
+            }
+        }
+
+        public string OwnerName
+        {
+            get { return _ownerName; }
+            set
+            {
+                _ownerName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Location
+        {
+            get { return _location; }
+            set
+            {
+                _location = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ImageSource OwnerImageSource
+        {
+            get { return _ownerImageSource; }
+            set
+            {
+                _ownerImageSource = value;
+                OnPropertyChanged();
             }
         }
 
@@ -92,6 +140,26 @@ namespace XF_StyleClub_POC.ViewModels
             set
             {
                 _description = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int TimeElapsedInMinutes
+        {
+            get { return _timeElapsedInMinutes; }
+            set
+            {
+                _timeElapsedInMinutes = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public VideoSource VideoSource
+        {
+            get { return _videoSource; }
+            set
+            {
+                _videoSource = value;
                 OnPropertyChanged();
             }
         }

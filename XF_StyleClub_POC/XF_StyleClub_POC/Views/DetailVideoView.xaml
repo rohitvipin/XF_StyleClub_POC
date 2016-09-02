@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:imageCircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
              xmlns:videoPlayer="clr-namespace:Octane.Xam.VideoPlayer;assembly=Octane.Xam.VideoPlayer"
              x:Class="XF_StyleClub_POC.Views.DetailVideoView"
              Title="{Binding PageTitle}">
@@ -19,14 +19,18 @@
           <RowDefinition Height="Auto" />
           <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <abstractions:CircleImage Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Source="http://loremflickr.com/600/600/nature?filename=simple.jpg" Aspect="AspectFit" WidthRequest="55" HeightRequest="55" BackgroundColor="#f9f9f9" />
-        <Label Grid.Row="0" Grid.Column="1" Text="AMY MICHAEL" FontAttributes="Bold" FontSize="Medium" TextColor="#809cd0" />
-        <Label Grid.Row="1" Grid.Column="1" Text="Los Angels, CA" FontSize="Micro" TextColor="Gray" />
-        <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center" Text="2 Minutes Ago" FontSize="Micro" TextColor="Gray" />
+        <imageCircle:CircleImage Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding OwnerImageSource}"
+                                  Aspect="AspectFit" WidthRequest="55" HeightRequest="55" BackgroundColor="#f9f9f9" />
+
+        <Label Grid.Row="0" Grid.Column="1" Text="{Binding OwnerName}" FontAttributes="Bold" FontSize="Medium" TextColor="#809cd0" />
+
+        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Location}" FontSize="Micro" TextColor="Gray" />
+
+        <Label Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" VerticalOptions="Center" Text="{Binding TimeElapsedInMinutes, StringFormat='{0:N} Ago'}" FontSize="Micro" TextColor="Gray" />
       </Grid>
 
       <videoPlayer:VideoPlayer x:Name="VideoPlayer" HorizontalOptions="FillAndExpand" VerticalOptions="Start"
-                               Source="http://vjs.zencdn.net/v/oceans.mp4" DisplayControls="True" AutoPlay="True"  />
+                               Source="{Binding VideoSource}" DisplayControls="True" AutoPlay="True"  />
 
       <Label HorizontalOptions="FillAndExpand" FontSize="Micro" Text="{Binding Description}" />
 

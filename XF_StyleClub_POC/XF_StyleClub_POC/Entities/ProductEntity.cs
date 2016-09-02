@@ -21,6 +21,11 @@ namespace XF_StyleClub_POC.Entities
         private string _title;
         private string _description;
         private string _videoUrl;
+        private string _websiteUrl;
+        private string _ownerImageSource;
+        private string _ownerName;
+        private string _location;
+        private TimeSpan _timeElapsed;
 
         public ProductEntity(IUnityContainer unityContainer, INavigationService navigationService, ILoggingService loggingService, IDialogService dialogService)
         {
@@ -74,11 +79,64 @@ namespace XF_StyleClub_POC.Entities
             }
         }
 
+        public string WebsiteUrl
+        {
+            get { return _websiteUrl; }
+            set
+            {
+                _websiteUrl = value;
+                OnPropertyChanged();
+            }
+        }
+
         public VideoSource VideoSource => VideoSource.FromUri(VideoUrl);
 
         public ImageSource ImageSource => ImageSource.FromUri(new Uri(ImageUrl));
 
         public AsyncRelayCommand SelectVideoDetailCommand { get; }
+
+        public ImageSource OwnerImageSource => ImageSource.FromUri(new Uri(OwnerImageUrl));
+
+        public string OwnerImageUrl
+        {
+            get { return _ownerImageSource; }
+            set
+            {
+                _ownerImageSource = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(OwnerImageSource));
+            }
+        }
+
+        public string OwnerName
+        {
+            get { return _ownerName; }
+            set
+            {
+                _ownerName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Location
+        {
+            get { return _location; }
+            set
+            {
+                _location = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public TimeSpan TimeElapsed
+        {
+            get { return _timeElapsed; }
+            set
+            {
+                _timeElapsed = value;
+                OnPropertyChanged();
+            }
+        }
 
         private async Task SelectVideoDetailCommandHandler()
         {
