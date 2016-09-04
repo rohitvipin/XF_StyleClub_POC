@@ -14,8 +14,8 @@ namespace XF_StyleClub_POC.Models
         [JsonProperty("ImageUrl")]
         public string ImageUrl { get; set; }
 
-        [JsonProperty("VideoUrl")]
-        public string VideoUrl { get; set; }
+        [JsonProperty("VimeoVideoId")]
+        public int VimeoVideoId { get; set; }
 
         [JsonProperty("WebsiteUrl")]
         public string WebsiteUrl { get; set; }

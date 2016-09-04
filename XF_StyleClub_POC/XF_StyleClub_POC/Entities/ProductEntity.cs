@@ -20,7 +20,7 @@ namespace XF_StyleClub_POC.Entities
         private string _imageUrl;
         private string _title;
         private string _description;
-        private string _videoUrl;
+        private int _vimeoVideodId;
         private string _websiteUrl;
         private string _ownerImageSource;
         private string _ownerName;
@@ -68,12 +68,12 @@ namespace XF_StyleClub_POC.Entities
             }
         }
 
-        public string VideoUrl
+        public int VimeoVideoId
         {
-            get { return _videoUrl; }
+            get { return _vimeoVideodId; }
             set
             {
-                _videoUrl = value;
+                _vimeoVideodId = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(VideoSource));
             }
@@ -89,7 +89,7 @@ namespace XF_StyleClub_POC.Entities
             }
         }
 
-        public VideoSource VideoSource => VideoSource.FromUri(VideoUrl);
+        public VideoSource VideoSource => MarkupExtensions.VimeoVideoIdExtension.Convert(VimeoVideoId.ToString());
 
         public ImageSource ImageSource => ImageSource.FromUri(new Uri(ImageUrl));
 

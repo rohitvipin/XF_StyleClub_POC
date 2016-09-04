@@ -65,7 +65,7 @@ namespace XF_StyleClub_POC.ViewModels
                                                                        OwnerImageUrl = x.OwnerImageUrl,
                                                                        OwnerName = x.OwnerName,
                                                                        Title = x.Title,
-                                                                       VideoUrl = x.VideoUrl,
+                                                                       VimeoVideoId = x.VimeoVideoId,
                                                                        WebsiteUrl = x.WebsiteUrl
                                                                    }));
 

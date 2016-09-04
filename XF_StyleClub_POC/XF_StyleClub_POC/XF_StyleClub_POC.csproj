@@ -100,6 +100,9 @@
     <Compile Include="Enums\EntryKeyboardButtonType.cs" />
     <Compile Include="Wrapper\ApiWrapper.cs" />
     <Compile Include="Wrapper\Interfaces\IApiWrapper.cs" />
+    <Compile Include="MarkupExtensions\VimeoVideo.cs" />
+    <Compile Include="MarkupExtensions\VimeoVideoIdExtension.cs" />
+    <Compile Include="Common\HttpUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">

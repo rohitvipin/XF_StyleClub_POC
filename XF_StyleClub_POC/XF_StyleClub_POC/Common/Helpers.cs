@@ -4,8 +4,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Octane.Xam.VideoPlayer;
 using XF_StyleClub_POC.Entities;
 using XF_StyleClub_POC.Enums;
+using XF_StyleClub_POC.MarkupExtensions;
 
 namespace XF_StyleClub_POC.Common
 {
@@ -78,6 +80,16 @@ namespace XF_StyleClub_POC.Common
                     };
                 }
             }
+        }
+
+        /// <summary>
+        /// Convert the specified video ID into a streamable Vimeo URL.
+        /// </summary>
+        /// <param name="videoId">Video identifier.</param>
+        /// <returns></returns>
+        public static VideoSource Convert(string videoId)
+        {
+            return new VimeoVideoIdExtension { VideoId = videoId }.ProvideValue(null) as VideoSource;
         }
     }
 }
