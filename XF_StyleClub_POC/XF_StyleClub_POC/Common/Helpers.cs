@@ -57,13 +57,12 @@ namespace XF_StyleClub_POC.Common
                             break;
 
                         case HttpRequestType.Delete:
-                            var request = new HttpRequestMessage
+                            response = await client.SendAsync(new HttpRequestMessage
                             {
                                 Content = stringContentInput,
                                 Method = HttpMethod.Delete,
                                 RequestUri = requestUri
-                            };
-                            response = await client.SendAsync(request);
+                            });
                             break;
 
                         default:
@@ -72,10 +71,10 @@ namespace XF_StyleClub_POC.Common
 
                     var responseJson = await response.Content.ReadAsStringAsync();
 
-                    return new WebResponseEntity
+                    return new WebResponseEntity(response.IsSuccessStatusCode)
                     {
                         WebResponseContent = responseJson,
-                        ResponseCode = (int)response.StatusCode
+                        ResponseCode = response.StatusCode
                     };
                 }
             }

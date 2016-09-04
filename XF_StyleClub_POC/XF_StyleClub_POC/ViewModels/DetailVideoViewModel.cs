@@ -82,6 +82,8 @@ namespace XF_StyleClub_POC.ViewModels
                 OwnerName = product.OwnerName;
                 TimeElapsedInMinutes = (int)product.TimeElapsed.TotalMinutes;
                 Location = product.Location;
+
+                await Task.Delay(Constants.VideoLoadTimeInMs);
             }
             catch (Exception exception)
             {

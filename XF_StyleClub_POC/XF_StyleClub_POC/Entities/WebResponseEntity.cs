@@ -1,11 +1,18 @@
-﻿namespace XF_StyleClub_POC.Entities
+﻿using System.Net;
+
+namespace XF_StyleClub_POC.Entities
 {
     public class WebResponseEntity
     {
+        public WebResponseEntity(bool isSuccessResponse)
+        {
+            IsSuccessStatusCode = isSuccessResponse;
+        }
+
         public string WebResponseContent { get; set; }
 
-        public int ResponseCode { get; set; } = 999;
+        public HttpStatusCode ResponseCode { get; set; }
 
-        public bool IsSuccessResponse => ResponseCode == 200;
+        public bool IsSuccessStatusCode { get; }
     }
 }

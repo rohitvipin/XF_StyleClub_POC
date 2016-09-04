@@ -6,5 +6,6 @@
         public const string BaseUrl = "http://demo7964423.mockable.io/";
         public static readonly string GetAllProductsUrl = $"{BaseUrl}GetAllProducts";
         public const string SuccessMessageNotReceivedFromServer = "Success Message Not Received From Server";
+        public const int VideoLoadTimeInMs = 1000;
     }
 }

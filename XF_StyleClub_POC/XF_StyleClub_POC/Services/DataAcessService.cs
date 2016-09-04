@@ -30,7 +30,7 @@ namespace XF_StyleClub_POC.Services
                 };
             }
 
-            if (!response.IsSuccessResponse)
+            if (!response.IsSuccessStatusCode)
             {
                 return new ServiceResponseEntity<List<Product>>
                 {

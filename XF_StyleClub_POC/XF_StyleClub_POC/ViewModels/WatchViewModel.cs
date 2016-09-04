@@ -49,28 +49,25 @@ namespace XF_StyleClub_POC.ViewModels
 
                 var allProductsServiceResponse = await _dataAcessService.GetAllProducts();
 
-                if (allProductsServiceResponse?.ReturnValue == null)
+                if (allProductsServiceResponse?.WebResponseEntity?.IsSuccessStatusCode != true || allProductsServiceResponse?.ReturnValue == null)
                 {
+                    _dialogService.ShowToastMessage(PageTitle, Messages.NoDataReceivedFromServer, ToastNotificationType.Error);
                     return;
                 }
 
-                if (allProductsServiceResponse.WebResponseEntity.IsSuccessResponse == false)
-                {
-                    return;
-                }
-
-                Products = new ObservableCollection<ProductEntity>(allProductsServiceResponse.ReturnValue?.Select(x => new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
-                {
-                    CreatedDateTime = x.CreatedDateTime,
-                    Description = x.Description,
-                    ImageUrl = x.ImageUrl,
-                    Location = x.Location,
-                    OwnerImageUrl = x.OwnerImageUrl,
-                    OwnerName = x.OwnerName,
-                    Title = x.Title,
-                    VideoUrl = x.VideoUrl,
-                    WebsiteUrl = x.WebsiteUrl
-                }));
+                Products = new ObservableCollection<ProductEntity>(allProductsServiceResponse.ReturnValue
+                                                                   ?.Select(x => new ProductEntity(_unityContainer, _navigationService, _loggingService, _dialogService)
+                                                                   {
+                                                                       CreatedDateTime = x.CreatedDateTime,
+                                                                       Description = x.Description,
+                                                                       ImageUrl = x.ImageUrl,
+                                                                       Location = x.Location,
+                                                                       OwnerImageUrl = x.OwnerImageUrl,
+                                                                       OwnerName = x.OwnerName,
+                                                                       Title = x.Title,
+                                                                       VideoUrl = x.VideoUrl,
+                                                                       WebsiteUrl = x.WebsiteUrl
+                                                                   }));
 
                 //Delay to load the image from Url
                 await Task.Delay(Constants.DefaultLoadTimeInMs);
