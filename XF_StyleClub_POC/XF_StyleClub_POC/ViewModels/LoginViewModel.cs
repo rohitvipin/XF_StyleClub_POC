@@ -23,7 +23,61 @@ namespace XF_StyleClub_POC.ViewModels
             _navigationService = navigationService;
             _loggingService = loggingService;
             _dialogService = dialogService;
+            SignInCommand = new AsyncRelayCommand(SignInCommandHandler);
             LoginCommand = new AsyncRelayCommand(LoginCommandHandler);
+            RegisterCommand = new AsyncRelayCommand(RegisterCommandHandler);
+        }
+
+        private async Task SignInCommandHandler()
+        {
+            if (IsBusy)
+            {
+                return;
+            }
+
+            try
+            {
+                BeginBusy();
+
+                var signInView = _unityContainer.Resolve<ISignInView>();
+                await _navigationService.NavigateToPage(signInView, PageTitles.ApplicationTitle);
+                await signInView.Initialize();
+            }
+            catch (Exception exception)
+            {
+                _loggingService.Error(exception);
+                _dialogService.ShowToastMessage(PageTitles.ApplicationTitle, Messages.UnExpectedError, ToastNotificationType.Error);
+            }
+            finally
+            {
+                EndBusy();
+            }
+        }
+
+        private async Task RegisterCommandHandler()
+        {
+            if (IsBusy)
+            {
+                return;
+            }
+
+            try
+            {
+                BeginBusy();
+
+                var registerView = _unityContainer.Resolve<IRegisterView>();
+                await _navigationService.NavigateToPage(registerView, PageTitles.ApplicationTitle);
+                await registerView.Initialize();
+            }
+            catch (Exception exception)
+            {
+                _loggingService.Error(exception);
+                _dialogService.ShowToastMessage(PageTitles.ApplicationTitle, Messages.UnExpectedError, ToastNotificationType.Error);
+            }
+            finally
+            {
+                EndBusy();
+            }
         }
 
         private async Task LoginCommandHandler()
@@ -65,5 +119,7 @@ namespace XF_StyleClub_POC.ViewModels
         }
 
         public AsyncRelayCommand LoginCommand { get; }
+        public AsyncRelayCommand RegisterCommand { get; }
+        public AsyncRelayCommand SignInCommand { get; }
     }
 }

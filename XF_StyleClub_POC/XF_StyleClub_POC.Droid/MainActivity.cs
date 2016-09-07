@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Views;
 using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
@@ -13,18 +14,16 @@ namespace XF_StyleClub_POC.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
-            TabLayoutResource = Resource.Layout.Tabbar;
+            TabLayoutResource = Resource.Layout.Tabbar; 
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
             Xamarin.Forms.Forms.Init(this, bundle);
 
             FormsVideoPlayer.Init();
             CachedImageRenderer.Init();
             ImageCircleRenderer.Init();
             UserDialogs.Init(this);
-
             LoadApplication(new App());
         }
     }

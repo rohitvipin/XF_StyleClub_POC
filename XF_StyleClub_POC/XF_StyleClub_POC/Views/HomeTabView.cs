@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using XF_StyleClub_POC.Common;
 using XF_StyleClub_POC.Views.Interfaces;
 
 namespace XF_StyleClub_POC.Views
@@ -16,7 +17,10 @@ namespace XF_StyleClub_POC.Views
             }
             SelectedItem = Children?.FirstOrDefault();
             BindablePage = this;
+            BarBackgroundColor = Color.FromHex("#F9F9F9");
+            BarTextColor = Color.FromHex("#BDCBE5");
         }
+
 
         public Page BindablePage { get; }
 

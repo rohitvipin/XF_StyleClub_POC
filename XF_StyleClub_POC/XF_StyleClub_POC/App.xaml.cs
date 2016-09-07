@@ -29,14 +29,18 @@ namespace XF_StyleClub_POC
             var navigationService = unityContainer.Resolve<INavigationService>();
             navigationService.AppRoot = this;
 
-            var childTabs = new List<IView>
-            {
-                unityContainer.Resolve<IWatchView>(),
-                unityContainer.Resolve<IShopView>()
-            };
-            var homeTabView = unityContainer.Resolve<IHomeTabView>(new ParameterOverride("childViews", childTabs));
-            navigationService.SetRoot(homeTabView, PageTitles.ApplicationTitle);
-            Task.Run(async () => await homeTabView.Initialize());
+            //var childTabs = new List<IView>
+            //{
+            //    unityContainer.Resolve<IWatchView>(),
+            //    unityContainer.Resolve<IShopView>()
+            //};
+            //var homeTabView = unityContainer.Resolve<IHomeTabView>(new ParameterOverride("childViews", childTabs));
+            //navigationService.SetRoot(homeTabView, PageTitles.ApplicationTitle);
+            //Task.Run(async () => await homeTabView.Initialize());
+
+            var loginView = unityContainer.Resolve<ILoginView>();
+            navigationService.SetRoot(loginView, PageTitles.ApplicationTitle);
+            Task.Run(async () => await loginView.Initialize());
         }
 
         private static void RegisterTypes(IUnityContainer unityContainer)
@@ -53,6 +57,8 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<ILoginView, LoginView>();
             unityContainer.RegisterType<IDetailVideoView, DetailVideoView>();
             unityContainer.RegisterType<IShopifyWebView, ShopifyWebView>();
+            unityContainer.RegisterType<IRegisterView, RegisterView>();
+            unityContainer.RegisterType<ISignInView, SignInView>();
 
 
             //ViewModels
@@ -62,6 +68,8 @@ namespace XF_StyleClub_POC
             unityContainer.RegisterType<IWatchViewModel, WatchViewModel>();
             unityContainer.RegisterType<IDetailVideoViewModel, DetailVideoViewModel>();
             unityContainer.RegisterType<IShopifyWebViewModel, ShopifyWebViewModel>();
+            unityContainer.RegisterType<IRegisterViewModel, RegisterViewModel>();
+            unityContainer.RegisterType<ISignInViewModel, SignInViewModel>();
 
 
             //Services
