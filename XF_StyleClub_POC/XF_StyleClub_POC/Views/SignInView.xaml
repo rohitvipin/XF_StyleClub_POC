@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:XF_StyleClub_POC.CustomControls;assembly=XF_StyleClub_POC"
+             x:Class="XF_StyleClub_POC.Views.SignInView"
+             BackgroundImage="signin">
+
+  <StackLayout VerticalOptions="FillAndExpand">
+    
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,100,0,0" Padding="55,35,55,55">
+      
+      <StackLayout BackgroundColor="#809CD0" Orientation="Horizontal">
+        <Image Source="mail" Margin="5,0,0,0"/>
+        <customControls:CustomEntry Placeholder="Email" PlaceholderColor="White" HorizontalOptions="FillAndExpand"/>
+      </StackLayout>
+
+      <StackLayout BackgroundColor="#809CD0" Orientation="Horizontal">
+        <Image Source="padlock" Margin="5,0,0,0"/>
+        <customControls:CustomEntry Placeholder="Password" PlaceholderColor="White" HorizontalOptions="FillAndExpand"/>
+      </StackLayout>
+
+      <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+        <customControls:CustomCheckbox Checked="{Binding IsSelected}" HeightRequest="30" WidthRequest="30" />
+        <Label VerticalTextAlignment="Center" FontSize="18" Text="Remember me" />
+      </StackLayout>
+
+      <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+        <Label HorizontalTextAlignment="Center" Text="Forgot your password?" TextColor="#809CD0" VerticalTextAlignment="Center"/>
+      </StackLayout>
+      
+    </StackLayout>
+    
+  </StackLayout>
+</ContentPage>
