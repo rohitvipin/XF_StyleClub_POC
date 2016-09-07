@@ -30,7 +30,7 @@
     </StackLayout>
 
     <StackLayout VerticalOptions="FillAndExpand" Padding="55,12,55,55">
-      <Button HorizontalOptions="FillAndExpand" BackgroundColor="Black" BorderRadius="0" BorderWidth="0" Text="REGISTER" FontAttributes="Bold" TextColor="White"></Button>
+      <Button HorizontalOptions="FillAndExpand" BackgroundColor="Black" BorderRadius="0" BorderWidth="0" Text="REGISTER" FontAttributes="Bold" TextColor="White" Command="{Binding RegisterCommand}"></Button>
     </StackLayout>
 
   </StackLayout>

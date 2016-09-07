@@ -2,10 +2,11 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Android.Views;
 using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
+using Xamarin.Forms;
+using Xamarin.Forms.Platform.Android;
 
 namespace XF_StyleClub_POC.Droid
 {
@@ -19,7 +20,6 @@ namespace XF_StyleClub_POC.Droid
 
             base.OnCreate(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);
-
             FormsVideoPlayer.Init();
             CachedImageRenderer.Init();
             ImageCircleRenderer.Init();

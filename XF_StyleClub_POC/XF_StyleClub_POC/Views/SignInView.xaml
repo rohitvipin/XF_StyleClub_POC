@@ -6,9 +6,9 @@
              BackgroundImage="signin">
 
   <StackLayout VerticalOptions="FillAndExpand">
-    
-    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,100,0,0" Padding="55,35,55,55">
-      
+
+    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,200,0,0" Padding="55,35,55,55">
+
       <StackLayout BackgroundColor="#809CD0" Orientation="Horizontal">
         <Image Source="mail" Margin="5,0,0,0"/>
         <customControls:CustomEntry Placeholder="Email" PlaceholderColor="White" HorizontalOptions="FillAndExpand"/>
@@ -27,8 +27,13 @@
       <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
         <Label HorizontalTextAlignment="Center" Text="Forgot your password?" TextColor="#809CD0" VerticalTextAlignment="Center"/>
       </StackLayout>
-      
+
     </StackLayout>
-    
+
+    <StackLayout VerticalOptions="FillAndExpand" Padding="55,12,55,55">
+      <Button HorizontalOptions="FillAndExpand" BackgroundColor="Black" BorderRadius="0" BorderWidth="0" Text="NEXT" Command="{Binding SignInCommand}" FontAttributes="Bold" TextColor="White"></Button>
+    </StackLayout>
+
+
   </StackLayout>
 </ContentPage>

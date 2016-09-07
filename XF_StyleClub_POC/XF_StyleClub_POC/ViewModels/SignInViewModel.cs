@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using XF_StyleClub_POC.Common;
+using XF_StyleClub_POC.Enums;
 using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels.Interfaces;
+using XF_StyleClub_POC.Views.Interfaces;
 
 namespace XF_StyleClub_POC.ViewModels
 {
@@ -21,6 +24,39 @@ namespace XF_StyleClub_POC.ViewModels
             _navigationService = navigationService;
             _dialogService = dialogService1;
             _loggingService = loggingService;
+            SignInCommand = new AsyncRelayCommand(SignInCommandHandler);
+        }
+
+        private async Task SignInCommandHandler()
+        {
+            if (IsBusy)
+            {
+                return;
+            }
+
+            try
+            {
+                BeginBusy();
+
+                var childTabs = new List<IView>
+                {
+                    _unityContainer.Resolve<IWatchView>(),
+                    _unityContainer.Resolve<IShopView>()
+                };
+
+                var homeTabView = _unityContainer.Resolve<IHomeTabView>(new ParameterOverride("childViews", childTabs));
+                _navigationService.SetRoot(homeTabView, PageTitles.ApplicationTitle);
+                await homeTabView.Initialize();
+            }
+            catch (Exception exception)
+            {
+                _loggingService.Error(exception);
+                _dialogService.ShowToastMessage(PageTitles.ApplicationTitle, Messages.UnExpectedError, ToastNotificationType.Error);
+            }
+            finally
+            {
+                EndBusy();
+            }
         }
 
         public override string PageTitle { get; }
@@ -41,5 +77,7 @@ namespace XF_StyleClub_POC.ViewModels
                 EndBusy();
             }
         }
+
+        public AsyncRelayCommand SignInCommand { get; }
     }
 }

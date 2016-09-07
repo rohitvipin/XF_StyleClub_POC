@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Practices.Unity;
+using XF_StyleClub_POC.Common;
+using XF_StyleClub_POC.Enums;
 using XF_StyleClub_POC.Services.Interfaces;
 using XF_StyleClub_POC.ViewModels.Interfaces;
+using XF_StyleClub_POC.Views.Interfaces;
 
 namespace XF_StyleClub_POC.ViewModels
 {
@@ -18,6 +21,33 @@ namespace XF_StyleClub_POC.ViewModels
             _navigationService = navigationService;
             _loggingService = loggingService;
             _dialogService = dialogService1;
+            RegisterCommand = new AsyncRelayCommand(RegisterCommandHandler);
+        }
+
+        private async Task RegisterCommandHandler()
+        {
+            if (IsBusy)
+            {
+                return;
+            }
+
+            try
+            {
+                BeginBusy();
+
+                var signInView = _unityContainer.Resolve<ISignInView>();
+                await _navigationService.NavigateToPage(signInView, PageTitles.ApplicationTitle);
+                await signInView.Initialize();
+            }
+            catch (Exception exception)
+            {
+                _loggingService.Error(exception);
+                _dialogService.ShowToastMessage(PageTitles.ApplicationTitle, Messages.UnExpectedError, ToastNotificationType.Error);
+            }
+            finally
+            {
+                EndBusy();
+            }
         }
 
         public override string PageTitle { get; }
@@ -38,5 +68,7 @@ namespace XF_StyleClub_POC.ViewModels
                 EndBusy();
             }
         }
+
+        public AsyncRelayCommand RegisterCommand { get; }
     }
 }
