@@ -5,8 +5,8 @@
              x:Class="XF_StyleClub_POC.Views.RegisterView"
              BackgroundImage="register">
 
-  <StackLayout VerticalOptions="FillAndExpand">
-    <StackLayout VerticalOptions="FillAndExpand" Margin="0,200,0,0" Padding="55,35,55,55" Spacing="5">
+  <StackLayout VerticalOptions="EndAndExpand">
+    <StackLayout VerticalOptions="EndAndExpand" Padding="55,35,55,55" Spacing="5">
 
       <StackLayout BackgroundColor="#809CD0" Orientation="Horizontal">
         <Image Source="user" Margin="5,0,0,0"/>

@@ -5,9 +5,9 @@
              x:Class="XF_StyleClub_POC.Views.SignInView"
              BackgroundImage="signin">
 
-  <StackLayout VerticalOptions="FillAndExpand">
+  <StackLayout VerticalOptions="EndAndExpand">
 
-    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,200,0,0" Padding="55,35,55,55">
+    <StackLayout VerticalOptions="EndAndExpand" Padding="55,35,55,55">
 
       <StackLayout BackgroundColor="#809CD0" Orientation="Horizontal">
         <Image Source="mail" Margin="5,0,0,0"/>
@@ -20,9 +20,21 @@
       </StackLayout>
 
       <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-        <customControls:CustomCheckbox Checked="{Binding IsSelected}" HeightRequest="30" WidthRequest="30" />
+        <StackLayout.IsVisible>
+          <OnPlatform x:TypeArguments="x:Boolean" Android="True" WinPhone="False" iOS="False"/>
+        </StackLayout.IsVisible>
+        <customControls:CustomToggle Checked="{Binding IsSelected}" HeightRequest="30" WidthRequest="30" />
         <Label VerticalTextAlignment="Center" FontSize="18" Text="Remember me" />
       </StackLayout>
+      
+       <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+        <StackLayout.IsVisible>
+          <OnPlatform x:TypeArguments="x:Boolean" Android="False" WinPhone="False" iOS="True"/>
+        </StackLayout.IsVisible>
+         <Switch HorizontalOptions="Start" VerticalOptions="Center" IsToggled="{Binding IsRememberMe}" />
+            <Label VerticalTextAlignment="Center" FontSize="18" Text="Remember me" />
+      </StackLayout>
+
 
       <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
         <Label HorizontalTextAlignment="Center" Text="Forgot your password?" TextColor="#809CD0" VerticalTextAlignment="Center"/>

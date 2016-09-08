@@ -5,13 +5,13 @@ using Xamarin.Forms.Platform.Android;
 using XF_StyleClub_POC.CustomControls;
 using XF_StyleClub_POC.Droid.CustomControlRenderers;
 
-[assembly: ExportRenderer(typeof(CustomCheckbox), typeof(CustomCheckboxRenderer))]
+[assembly: ExportRenderer(typeof(CustomToggle), typeof(CustomCheckboxRenderer))]
 
 namespace XF_StyleClub_POC.Droid.CustomControlRenderers
 {
-    public class CustomCheckboxRenderer : ViewRenderer<CustomCheckbox, CheckBox>
+    public class CustomCheckboxRenderer : ViewRenderer<CustomToggle, CheckBox>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<CustomCheckbox> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<CustomToggle> e)
         {
             base.OnElementChanged(e);
 

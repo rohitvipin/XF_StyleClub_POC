@@ -6,7 +6,6 @@ using FFImageLoading.Forms.Droid;
 using ImageCircle.Forms.Plugin.Droid;
 using Octane.Xam.VideoPlayer.Android;
 using Xamarin.Forms;
-using Xamarin.Forms.Platform.Android;
 
 namespace XF_StyleClub_POC.Droid
 {
@@ -17,6 +16,7 @@ namespace XF_StyleClub_POC.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar; 
             ToolbarResource = Resource.Layout.Toolbar;
+            Forms.SetTitleBarVisibility(AndroidTitleBarVisibility.Never);
 
             base.OnCreate(bundle);
             Xamarin.Forms.Forms.Init(this, bundle);

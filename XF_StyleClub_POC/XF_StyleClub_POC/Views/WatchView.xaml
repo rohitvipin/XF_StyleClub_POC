@@ -14,8 +14,11 @@
             <StackLayout.GestureRecognizers>
               <TapGestureRecognizer Command="{Binding SelectVideoDetailCommand}" />
             </StackLayout.GestureRecognizers>
-            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="{Binding Title}" TextColor="#809cd0" FontSize="Small" />
             <ffImageLoading:CachedImage HorizontalOptions="FillAndExpand" VerticalOptions="Start" Aspect="AspectFit" Source="{Binding ImageSource}" HeightRequest="200" />
+            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" FontSize="Medium" />
+            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="$24.99" TextColor="#FF809E" FontAttributes="Bold"></Label>
+            <BoxView HeightRequest="1" Color="#A9A9A9"></BoxView>
+            <Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Product Details" TextColor="#809CD0" FontAttributes="Bold" FontSize="Small"></Label>
             <Label HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="{Binding Description}" TextColor="Gray" FontSize="Micro" />
           </StackLayout>
         </ViewCell>

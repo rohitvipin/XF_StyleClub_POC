@@ -173,7 +173,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControlRenderers\CustomCheckboxRenderer.cs" />
+    <Compile Include="CustomControlRenderers\CustomToggleRenderer.cs" />
     <Compile Include="CustomControlRenderers\CustomEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

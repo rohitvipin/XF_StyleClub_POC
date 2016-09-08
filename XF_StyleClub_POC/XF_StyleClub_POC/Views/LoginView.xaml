@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:customControls="clr-namespace:XF_StyleClub_POC.CustomControls;assembly=XF_StyleClub_POC"
              x:Class="XF_StyleClub_POC.Views.LoginView"
              Title="{Binding PageTitle}"
              BackgroundImage="login">
   
-  <StackLayout Margin="0,430,0,0" Padding="15,15,15,15"  Spacing="2">
+  <StackLayout VerticalOptions="EndAndExpand" Padding="15,15,15,15"  Spacing="2">
     
-    <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
-      <Button HorizontalOptions="FillAndExpand" BorderRadius="0" BackgroundColor="#3B5998" BorderWidth="0" Text="Login with Facebbok" TextColor="White"></Button>
+    <StackLayout Orientation="Horizontal">
+      <Button HorizontalOptions="FillAndExpand" WidthRequest="330" BorderRadius="0" BackgroundColor="#3B5998" BorderWidth="0" Text="Login with Facebbok" TextColor="White"></Button>
     </StackLayout>
     
     <StackLayout Orientation="Horizontal" Spacing="2">

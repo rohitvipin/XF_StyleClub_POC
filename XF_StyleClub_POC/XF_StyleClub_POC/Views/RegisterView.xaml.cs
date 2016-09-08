@@ -15,6 +15,7 @@ namespace XF_StyleClub_POC.Views
         private readonly IRegisterViewModel _registerViewModel;
         public RegisterView(IRegisterViewModel registerViewModel1)
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             BindingContext = _registerViewModel = registerViewModel1;
             BindablePage = this;

@@ -11,6 +11,7 @@ namespace XF_StyleClub_POC.Views
         private readonly ILoginViewModel _loginViewModel;
         public LoginView(ILoginViewModel loginViewModel)
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             BindingContext = _loginViewModel = loginViewModel;
             BindablePage = this;

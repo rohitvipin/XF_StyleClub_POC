@@ -7,11 +7,11 @@ using Xamarin.Forms;
 
 namespace XF_StyleClub_POC.CustomControls
 {
-    public class CustomCheckbox : View
+    public class CustomToggle : View
     {
         public event EventHandler<bool> CheckedChanged;
 
-        public static readonly BindableProperty CheckedProperty = BindableProperty.Create("Checked", typeof(bool), typeof(CustomCheckbox), false, BindingMode.TwoWay, propertyChanged: OnCheckedPropertyChanged);
+        public static readonly BindableProperty CheckedProperty = BindableProperty.Create("Checked", typeof(bool), typeof(CustomToggle), false, BindingMode.TwoWay, propertyChanged: OnCheckedPropertyChanged);
 
         public bool Checked
         {
@@ -33,7 +33,7 @@ namespace XF_StyleClub_POC.CustomControls
 
         private static void OnCheckedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
         {
-            var checkBox = (CustomCheckbox)bindable;
+            var checkBox = (CustomToggle)bindable;
             checkBox.Checked = (bool)newvalue;
         }
     }

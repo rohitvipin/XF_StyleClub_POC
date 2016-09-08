@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CustomControlRenderers\CheckBoxView.cs" />
-    <Compile Include="CustomControlRenderers\CustomCheckboxRenderer.cs" />
+    <Compile Include="CustomControlRenderers\customToggleRenderer.cs" />
     <Compile Include="CustomControlRenderers\CustomEntryRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />

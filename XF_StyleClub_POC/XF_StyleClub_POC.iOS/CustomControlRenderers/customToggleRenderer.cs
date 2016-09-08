@@ -5,13 +5,13 @@ using Xamarin.Forms.Platform.iOS;
 using XF_StyleClub_POC.CustomControls;
 using XF_StyleClub_POC.iOS.CustomControlRenderers;
 
-[assembly: ExportRenderer(typeof(CustomCheckbox), typeof(CustomCheckboxRenderer))]
+[assembly: ExportRenderer(typeof(CustomToggle), typeof(CustomCheckboxRenderer))]
 
 namespace XF_StyleClub_POC.iOS.CustomControlRenderers
 {
-    public class CustomCheckboxRenderer : ViewRenderer<CustomCheckbox, CheckBoxView>
+    public class CustomCheckboxRenderer : ViewRenderer<CustomToggle, CheckBoxView>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<CustomCheckbox> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<CustomToggle> e)
         {
             base.OnElementChanged(e);
             if (Element == null)

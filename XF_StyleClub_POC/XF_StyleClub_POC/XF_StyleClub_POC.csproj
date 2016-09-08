@@ -42,7 +42,7 @@
     <Compile Include="Common\Helpers.cs" />
     <Compile Include="Common\Messages.cs" />
     <Compile Include="Common\PageTitles.cs" />
-    <Compile Include="CustomControls\CustomCheckbox.cs" />
+    <Compile Include="CustomControls\CustomToggle.cs" />
     <Compile Include="CustomControls\Interfaces\ISelectable.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\ServiceResponseEntity.cs" />
